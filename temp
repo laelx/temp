@@ -1,0 +1,13 @@
+const int sensor = A3;
+String temp;
+
+void setup() {
+    Serial.begin(9600);
+    pinMode(sensor, INPUT);
+}
+
+void loop() {
+    temp = analogRead(sensor);
+    Particle.publish("temp", temp, PRIVATE);
+    delay(30000);
+}
